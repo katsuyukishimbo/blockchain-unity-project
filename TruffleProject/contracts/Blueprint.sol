@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.16;
 
 // A template contract that is just a string-to-string map.
 contract Blueprint {
@@ -10,16 +10,16 @@ contract Blueprint {
     constructor() public {
     }
 
-    function store(string key, string value) public {
+    function store(string memory key, string memory value) public {
         database[key] = value;
         emit ValueChanged(key, value);
     }
 
-    function load(string key) public view returns(string) {
+    function load(string memory key) public view returns(string memory) {
         return database[key];
     }
 
-    function remove(string key) public {
+    function remove(string memory key) public {
         delete database[key];
         emit ValueRemoved(key);
     }
